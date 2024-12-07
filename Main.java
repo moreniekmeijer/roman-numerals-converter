@@ -8,7 +8,6 @@ public class Main {
 
         // Aanroep van de methode
         romanToInt(roman);
-
     }
 
     public static void romanToInt(String romanNumber) {
@@ -28,14 +27,15 @@ public class Main {
         int previousValue = 0;
 
         // Omgekeerde for-loop zodat ik de Romeinse karakters ook eventueel kan aftrekken van het karakter dat erna komt.
+        // De loop begint dus bij het laatste Romeinse karakter en loopt dan terug.
         for (int i = romanNumber.length() - 1; i >= 0; i--) {
 
-            // initialiseert characters op basis van de index uit de loop, daarna linkt deze de correcte Integer uit de HashMap
+            // initialiseert characters op basis van de index uit de loop, daarna linkt deze de correcte Integer uit de HashMap.
             char currentChar = romanNumber.toUpperCase().charAt(i);
             int currentValue = romanValues.get(currentChar);
 
             // Deze if-else checkt of het nieuwe karakter uit de index groter of kleiner is dan de vorige,
-            // zodat het opgeteld of afgetrokken kan worden van de totale waarde.
+            // zodat het opgeteld of (else) afgetrokken kan worden van de totale waarde.
             if (currentValue >= previousValue) {
                 totalValue += currentValue;
                 previousValue = currentValue;
